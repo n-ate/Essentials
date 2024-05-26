@@ -16,10 +16,10 @@
     <Configurations>Debug;Release;DebugVerbose</Configurations>
     <AssemblyVersion></AssemblyVersion>
     <FileVersion></FileVersion>
-    <PackageIcon>icon.png</PackageIcon>
+    <PackageIcon>icon.jpg</PackageIcon>
     <Title>n-ate Essentials</Title>
     <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -67,13 +67,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\.nuGet\nuGet.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
@@ -83,6 +76,20 @@
 
   <ItemGroup>
     <Folder Include="Attributes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\icon.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="nuGet.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
