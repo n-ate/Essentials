@@ -19,6 +19,7 @@
     <PackageIcon>icon.png</PackageIcon>
     <Title>n-ate Essentials</Title>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
