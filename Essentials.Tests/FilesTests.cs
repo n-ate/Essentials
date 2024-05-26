@@ -9,7 +9,7 @@ namespace n_ate.Essentials.Tests
 
             //Arrange//
             var path = "to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
@@ -26,7 +26,7 @@ namespace n_ate.Essentials.Tests
 
             //Arrange//
             var path = "FilesTestsData/Directory/to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
@@ -43,7 +43,7 @@ namespace n_ate.Essentials.Tests
 
             //Arrange//
             var path = "FilesTestsData\\Directory\\to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
@@ -60,7 +60,7 @@ namespace n_ate.Essentials.Tests
 
             //Arrange//
             var path = "/FilesTestsData/Directory/to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
@@ -76,8 +76,8 @@ namespace n_ate.Essentials.Tests
             //Assume//
 
             //Arrange//
-            var path = "\\FilesTestsData\\Directory\\to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var path = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt";
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
@@ -94,7 +94,7 @@ namespace n_ate.Essentials.Tests
 
             //Arrange//
             var path = "Directory/to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
@@ -111,7 +111,7 @@ namespace n_ate.Essentials.Tests
 
             //Arrange//
             var path = "Directory\\to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
@@ -128,7 +128,7 @@ namespace n_ate.Essentials.Tests
 
             //Arrange//
             var path = "/Directory/to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
@@ -145,7 +145,7 @@ namespace n_ate.Essentials.Tests
 
             //Arrange//
             var path = "\\Directory\\to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
@@ -162,7 +162,7 @@ namespace n_ate.Essentials.Tests
 
             //Arrange//
             var path = "/to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
@@ -179,7 +179,7 @@ namespace n_ate.Essentials.Tests
 
             //Arrange//
             var path = "\\to-find.txt";
-            var expected = "\\FilesTestsData\\Directory\\to-find.txt".ToSingleItemArray();
+            var expected = $"FilesTestsData{Path.DirectorySeparatorChar}Directory{Path.DirectorySeparatorChar}to-find.txt".ToSingleItemArray();
 
             //Act//
             var actual = Files.FindMatchingAbsoluteFilePaths(path);
