@@ -1,4 +1,4 @@
-name: Publish Vx.x.x Tagged
+name: Publish Version Tagged Commits
 
 on:
   push:
