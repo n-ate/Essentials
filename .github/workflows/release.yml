@@ -1,3 +1,5 @@
+name: Publish Vx.x.x Tagged
+
 on:
   push:
     tags:
