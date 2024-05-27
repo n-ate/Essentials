@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <PackageProjectUrl>https://github.com/n-ate/Essentials?TODO:update</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/n-ate/Essentials</PackageProjectUrl>
     <Description>Package has essential utility classes. Numerous extension methods, attributes, enums, models for tracking and DateTime, and serialization converters are all found in this package.</Description>
     <Copyright>2023</Copyright>
-    <RepositoryUrl>https://github.com/n-ate/Essentials</RepositoryUrl>
+    <RepositoryUrl>https://github.com/n-ate/Essentials.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>common;utility;extensions;LongDateTime;serialization;json;Change Tracking</PackageTags>
     <Version>8.0.0</Version>
