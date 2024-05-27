@@ -22,6 +22,8 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output .
     - name: Push
-      run: dotnet nuget push n-ate.Essentials.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${NUGETORG_PUBLISH_TOKEN}
+      # with: # Set the secret as an input
+      #   NUGETORG_PUBLISH_TOKEN: ${{ secrets.NUGETORG_PUBLISH_TOKEN }}
       env:
         NUGETORG_PUBLISH_TOKEN: ${{ secrets.NUGETORG_PUBLISH_TOKEN }} #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: dotnet nuget push n-ate.Essentials.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key "$NUGETORG_PUBLISH_TOKEN"
