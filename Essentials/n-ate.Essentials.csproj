@@ -22,7 +22,11 @@
     <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
   </PropertyGroup>
-
+    
+    <PropertyGroup>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    </PropertyGroup>
+    
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <Deterministic>True</Deterministic>
   </PropertyGroup>
@@ -81,6 +85,10 @@
 
   <ItemGroup>
     <None Include="..\icon.jpg">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
