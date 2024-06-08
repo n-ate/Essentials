@@ -3,7 +3,7 @@ using System.Text.Json;
 
 namespace n_ate.Essentials.Tests
 {
-    public class InterfaceResolverConverterTests
+    public class InterfaceAutoResolveConverterTests
     {
         internal interface INeedResolving
         {
@@ -80,7 +80,7 @@ namespace n_ate.Essentials.Tests
             //Assume//
             var options = new JsonSerializerOptions { WriteIndented = true };
             options.Converters.Add(new InterfaceAutoResolveConverter(this.GetType().Assembly));
-            var expected = "{\r\n  \"Interface1\": {\r\n    \"Id\": 1,\r\n    \"Key\": \"Class1\",\r\n    \"List\": [\r\n      0.1,\r\n      0.2,\r\n      0.3\r\n    ],\r\n    \"Property1\": \"Property1\",\r\n    \"Property2\": \"Property2\",\r\n    \"Property3\": \"Property3\"\r\n  },\r\n  \"Interface2\": {\r\n    \"Id\": 1,\r\n    \"Key\": \"Class1\",\r\n    \"List\": [\r\n      0.1,\r\n      0.2,\r\n      0.3\r\n    ],\r\n    \"Property1\": \"Property1\",\r\n    \"Property2\": \"Property2\"\r\n  },\r\n  \"Interface3\": {\r\n    \"Id\": 1,\r\n    \"Key\": \"Class1\",\r\n    \"List\": [\r\n      0.1,\r\n      0.2,\r\n      0.3\r\n    ],\r\n    \"Property2\": \"Property2\",\r\n    \"Property3\": \"Property3\"\r\n  },\r\n  \"InterfaceArray\": [\r\n    {\r\n      \"Id\": 1,\r\n      \"Key\": \"Class1\",\r\n      \"List\": [\r\n        0.1,\r\n        0.2,\r\n        0.3\r\n      ],\r\n      \"Property1\": \"Property1\",\r\n      \"Property2\": \"Property2\",\r\n      \"Property3\": \"Property3\"\r\n    },\r\n    {\r\n      \"Id\": 1,\r\n      \"Key\": \"Class1\",\r\n      \"List\": [\r\n        0.1,\r\n        0.2,\r\n        0.3\r\n      ],\r\n      \"Property1\": \"Property1\",\r\n      \"Property2\": \"Property2\"\r\n    },\r\n    {\r\n      \"Id\": 1,\r\n      \"Key\": \"Class1\",\r\n      \"List\": [\r\n        0.1,\r\n        0.2,\r\n        0.3\r\n      ],\r\n      \"Property2\": \"Property2\",\r\n      \"Property3\": \"Property3\"\r\n    }\r\n  ]\r\n}";
+            var expected = "{\"Interface1\":{\"Id\":1,\"Key\":\"Class1\",\"List\":[0.1,0.2,0.3],\"Property1\":\"Property1\",\"Property2\":\"Property2\",\"Property3\":\"Property3\"},\"Interface2\":{\"Id\":1,\"Key\":\"Class1\",\"List\":[0.1,0.2,0.3],\"Property1\":\"Property1\",\"Property2\":\"Property2\"},\"Interface3\":{\"Id\":1,\"Key\":\"Class1\",\"List\":[0.1,0.2,0.3],\"Property2\":\"Property2\",\"Property3\":\"Property3\"},\"InterfaceArray\":[{\"Id\":1,\"Key\":\"Class1\",\"List\":[0.1,0.2,0.3],\"Property1\":\"Property1\",\"Property2\":\"Property2\",\"Property3\":\"Property3\"},{\"Id\":1,\"Key\":\"Class1\",\"List\":[0.1,0.2,0.3],\"Property1\":\"Property1\",\"Property2\":\"Property2\"},{\"Id\":1,\"Key\":\"Class1\",\"List\":[0.1,0.2,0.3],\"Property2\":\"Property2\",\"Property3\":\"Property3\"}]}";
 
             //Arrange//
             var seed = new MainClass
@@ -92,7 +92,7 @@ namespace n_ate.Essentials.Tests
             seed.InterfaceArray = [seed.Interface1, seed.Interface2, seed.Interface3];
 
             //Act//
-            var actual = JsonSerializer.Serialize(seed, options);
+            var actual = JsonSerializer.Serialize(seed, options).Replace(" ", string.Empty).Replace("\r", string.Empty).Replace("\n", string.Empty);
 
             //Assert//
             Assert.That(actual == expected);
