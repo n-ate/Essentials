@@ -139,7 +139,7 @@ namespace n_ate.Essentials.Models
         {
             if (_setProperties.ContainsKey(propertyName))
             {
-                lock (_lock) _propertyResetAnticascadeThreadId.Add(Thread.CurrentThread.ManagedThreadId); 
+                lock (_lock) _propertyResetAnticascadeThreadId.Add(Thread.CurrentThread.ManagedThreadId);
                 this.SetValue(propertyName, _initialPropertyValues[propertyName]); // set the value to the initial value..
                 lock (_lock) _propertyResetAnticascadeThreadId.Remove(Thread.CurrentThread.ManagedThreadId);
                 _setProperties.Remove(propertyName);

@@ -982,6 +982,14 @@ namespace n_ate.Essentials
             public int Compare(object? a, object? b)
             {
                 if (a == b) return 0;
+                if (a is not null && a.Equals(b)) return 0;
+                if (a is not null && b is not null)
+                { // do type comparisons, if both types are available
+                    if (a.GetType() != b.GetType())
+                    {
+                        return a.GetType().Name.CompareTo(b.GetType().Name);
+                    }
+                }
                 var t = a == null ? b!.GetType() : a.GetType();
                 var properties = t.GetProperties();
                 foreach (var property in properties)
@@ -998,6 +1006,7 @@ namespace n_ate.Essentials
             private int CompareSingle(object? a, object? b)
             {
                 if (a == b) return 0;
+                if (a is not null && a.Equals(b)) return 0;
                 Type t = (a == null ? b!.GetType() : a.GetType());
                 if (a != b && t == typeof(String))
                 {
