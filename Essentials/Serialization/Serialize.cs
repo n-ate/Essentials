@@ -1,5 +1,4 @@
-﻿using n_ate.Essentials;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace n_ate.Essentials.Serialization
