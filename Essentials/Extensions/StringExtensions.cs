@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace n_ate.Essentials
 {
-    public static class StringExtensions
+    public static partial class StringExtensions
     {
         private static readonly MatchEvaluator _addSpaces =
             new MatchEvaluator(m =>
@@ -59,5 +59,51 @@ namespace n_ate.Essentials
             "" => throw new ArgumentException($"{nameof(value)} cannot be empty", nameof(value)),
             _ => string.Concat(char.ToUpper(value[0]), value[1..])
         };
+
+        public static string Capitalize(this string value) => $"{value[0].ToString().ToUpper()}{value[1..]}";
+
+        public static string RemoveInvisibleCharacters(this string value) => InvisibleCharacterRegex().Replace(value, string.Empty);
+
+        public static string ReplaceNonStandardSpaces(this string value) => NonstandardWhiteSpaceRegex().Replace(value, " ");
+
+        public static string[] SplitAtFirst(this string value, params string[] splitValues)
+        {
+            var splitIndex = int.MaxValue;
+            var splitValueLength = 0;
+            foreach (var split in splitValues)
+            {
+                var index = value.IndexOf(split);
+                if (index != -1)
+                {
+                    splitIndex = Math.Min(splitIndex, index);
+                    splitValueLength = split.Length;
+                }
+            }
+            return splitIndex == -1 ? [value] : [value[..splitIndex], value[(splitIndex + splitValueLength)..]];
+        }
+
+        public static string TrimStart(this string value, params string[] removeValues)
+        {
+            var found = true;
+            while (found)
+            {
+                found = false;
+                foreach (var r in removeValues)
+                {
+                    if (value.StartsWith(r))
+                    {
+                        value = value[r.Length..]; //remove from start
+                        found = true;
+                    }
+                }
+            }
+            return value;
+        }
+
+        [GeneratedRegex(@"[\p{Cf}\p{Cs}\p{Co}\p{Cn}]")]
+        private static partial Regex InvisibleCharacterRegex();
+
+        [GeneratedRegex(@"[\p{Zs}-[\x20]]|\p{Zl}|\p{Zp}")]
+        private static partial Regex NonstandardWhiteSpaceRegex();
     }
 }

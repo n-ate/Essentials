@@ -8,7 +8,7 @@
     <RepositoryUrl>https://github.com/n-ate/Essentials.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>common;utility;extensions;LongDateTime;serialization;json;Change Tracking</PackageTags>
-    <Version>1.0.1</Version>
+    <Version>10.0.3</Version>
     <Authors>Nate Layton</Authors>
     <Company>n-ate</Company>
     <PackageReadmeFile>nuGet.md</PackageReadmeFile>
@@ -39,38 +39,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugVerbose|AnyCPU'">
     <Deterministic>True</Deterministic>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Converters\**" />
-    <Compile Remove="Decompiled\**" />
-    <Compile Remove="Models\ArrayResult\**" />
-    <EmbeddedResource Remove="Converters\**" />
-    <EmbeddedResource Remove="Decompiled\**" />
-    <EmbeddedResource Remove="Models\ArrayResult\**" />
-    <None Remove="Converters\**" />
-    <None Remove="Decompiled\**" />
-    <None Remove="Models\ArrayResult\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Attributes\CosmosIgnoreAttribute.cs" />
-    <Compile Remove="BetterArrayConverter.cs" />
-    <Compile Remove="BetterObjectDefaultConverter.cs" />
-    <Compile Remove="BetterPreserveReferenceHandler.cs" />
-    <Compile Remove="DynamicTypes.cs" />
-    <Compile Remove="JsonBuilder.cs" />
-    <Compile Remove="JsonRegex.cs" />
-    <Compile Remove="Models\Entity.cs" />
-    <Compile Remove="Models\GremlinEntity.cs" />
-    <Compile Remove="Models\GremlinItem.cs" />
-    <Compile Remove="Models\GremlinRelationship.cs" />
-    <Compile Remove="Models\Jacket.cs" />
-    <Compile Remove="Models\Jacket.NONE.cs" />
-    <Compile Remove="Models\LongFormPropertyCollection.cs" />
-    <Compile Remove="Models\Relationship.cs" />
-    <Compile Remove="MyBinder.cs" />
-    <Compile Remove="Serializer.cs" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.8" />

@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 
-namespace Acuity.Essentials.Attributes
+namespace n_ate.Essentials.Attributes
 {
     /// <summary>
     /// Attribute used to decorate properties that should be ignored by Cosmos. The magic is done by checking each property with PropertyHasIgnoreAttribute().
