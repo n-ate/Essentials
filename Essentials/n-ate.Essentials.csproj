@@ -19,7 +19,8 @@
     <PackageIcon>icon.jpg</PackageIcon>
     <Title>n-ate Essentials</Title>
     <Nullable>enable</Nullable>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	  <PackageOutputPath>C:\_\local-packages\</PackageOutputPath>
     <AssemblyName>$(MSBuildProjectName)</AssemblyName>
   </PropertyGroup>
     
